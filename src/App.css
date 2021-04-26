@@ -1,0 +1,23 @@
+.LeftHeaderStyle {
+  float: left;
+  text-align: center;
+  color: red;
+  background-color: white;
+  padding: 10px;
+  font-family: Arial;
+  border: solid black 5px;
+  border-radius: 15px;
+  margin: 50px;
+}
+
+.RightHeadeStyle {
+  float: right;
+  text-align: center;
+  color: red;
+  background-color: white;
+  padding: 10px;
+  font-family: Arial;
+  border: solid black 5px;
+  border-radius: 15px;
+  margin: 50px;
+}
