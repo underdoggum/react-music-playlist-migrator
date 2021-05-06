@@ -1,11 +1,11 @@
-import LeftHeader from './components/LeftHeader'
-import RightHeader from './components/RightHeader'
+import HeaderLeft from './components/HeaderLeft'
+import HeaderRight from './components/HeaderRight'
 
 function App() {
   return (
     <div>
-      <LeftHeader />
-      <RightHeader />
+      <HeaderLeft />
+      <HeaderRight />
     </div>
   );
 }
