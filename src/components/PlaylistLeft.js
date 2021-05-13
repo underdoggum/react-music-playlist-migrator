@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
 
 const playlists = [
   {
@@ -43,13 +44,13 @@ const playlists = [
   }
 ]
 
-const Button = props => {
-  return (
-    <div>
-      <button className='button' onClick={ () => {alert(props.artist)}}>Transfer</button>
-    </div>
-  )
-}
+// const Button = props => {
+//   return (
+//     <div>
+//       <button className='button' onClick={ () => {alert(props.artist)}}>Transfer</button>
+//     </div>
+//   )
+// }
 
 class PlaylistLeft extends Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class PlaylistLeft extends Component {
               })}
             </select>
           </label>
-          <input type="submit" value="Submit" /> {/*change this value="Submit" to the transfer button to lift state up*/}
+          <Button variant="contained" color="primary">Submit</Button> {/*change this value="Submit" to the transfer button to lift state up*/}
         </form>
       </div>
     )
