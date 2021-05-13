@@ -1,5 +1,6 @@
 .HeaderLeftStyle {
-  min-width: 400px;
+  /* min-width: 400px; */
+  width: 40%;
   float: left;
   text-align: center;
   color: red;
@@ -8,19 +9,32 @@
   font-family: Arial;
   border: solid black 5px;
   border-radius: 15px;
-  margin: 5px;
+  margin: 5px auto;
+  /* "margin: auto" will make the element horizontally centered */
   /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+}
+
+.button {
+  
 }
 
 .HeaderRightStyle {
   float: right;
+  width: 40%;
   text-align: center;
   color: red;
   background-color: white;
   padding: 10px;
-  font-family: Arial;
-  border: solid black 5px;
+  font-family: "Concert One" Arial;
+  border: solid gray 5px;
   border-radius: 15px;
-  margin: 5px;
+  margin: 5px auto;
   /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+}
+
+h2 {
+  font-size: large;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
 }

@@ -1,38 +1,95 @@
-import React, { useState } from 'react'
-import Select from 'react-select'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { Component } from 'react'
 
-//change this to data fetched from youtube music api
 const playlists = [
-    { label: "Workout", value: 1 }, //MUST have a "label" and "value" to work with react-select class
-    { label: "Driving", value: 2 },
-    { label: "Chill", value: 3 },
-    { label: "Shower Jamz", value: 4 },
+  {
+      playlist: "Workout",
+      songs:
+      [
+          { title: "Life is a Highway", artist: "Lenny Kkravitz" },
+          { title: "What's Up", artist: "The Drunken Amberinos" },
+          { title: "Back in Black", artist: "Butthole Surfers" },
+          { title: "Blue Suede Shoes", artist: "Blistem of a Frown" },
+      ]
+  },
+  {
+      playlist: "Driving",
+      songs:
+      [
+          { title: "Bury Me", artist: "Shortstack" },
+          { title: "Illegitimate", artist: "The Quasars" },
+          { title: "Beck in Beck", artist: "Beckhole" },
+          { title: "Fagaysie", artist: "Nate Dogg ft. Warren G" },
+      ]
+  },
+  {
+    playlist: "I Don't Feel Like Dancin'",
+    songs:
+    [
+        { title: "Bury Me", artist: "Shortstack" },
+        { title: "Illegitimate", artist: "The Quasars" },
+        { title: "Beck in Beck", artist: "Beckhole" },
+        { title: "Fagaysie", artist: "Nate Dogg ft. Warren G" },
+    ]
+  },
+  {
+    playlist: "Showa jamz!!11!1",
+    songs:
+    [
+        { title: "Bury Me", artist: "Shortstack" },
+        { title: "Illegitimate", artist: "The Quasars" },
+        { title: "Beck in Beck", artist: "Beckhole" },
+        { title: "Fagaysie", artist: "Nate Dogg ft. Warren G" },
+    ]
+  }
 ]
 
-const PlaylistLeft = () => {
-    // const [selectedPlaylist, handleChange] = useState({});
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-4" style={{margin: "auto", minWidth: "300px"}}>
-                    <Select options={playlists} placeholder={"Select a Playlist"} />
-                    {/* <button onClick={() => {alert(this.handleChange(selectedPlaylist))}}>Test</button> */}
-                </div>
-            </div>
-        </div>
-    )
+const Button = props => {
+  return (
+    <div>
+      <button className='button' onClick={ () => {alert(props.artist)}}>Transfer</button>
+    </div>
+  )
 }
 
+class PlaylistLeft extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      value: "Please select a playlist",
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+    
+  handleSubmit = event => {
+    alert(`Selected playlist: ${this.state.value}`)
+    event.preventDefault()
+  }
+  handleChange = event => {
+    this.setState({value: event.target.value})
+  }
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Choose a playlist: 
+            <select value={this.state.value} onChange={this.handleChange}>
+              {playlists.map(p => {
+                return (<option value={p.playlist}>{p.playlist}</option>)
+              })}
+            </select>
+          </label>
+          <input type="submit" value="Submit" /> {/*change this value="Submit" to the transfer button to lift state up*/}
+        </form>
+      </div>
+    )
+  }
+}
 
 export default PlaylistLeft
-
-
-
-
-
-
 
 // example from scrimba lesson on getting api data:
 // import React, {Component} from "react"
