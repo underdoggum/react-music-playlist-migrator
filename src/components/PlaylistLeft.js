@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
+import RenderCheckboxes from './RenderCheckboxes'
+import SelectPlaylist from './SelectPlaylist';
 
 const playlists = [
   {
@@ -77,13 +79,12 @@ class PlaylistLeft extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Choose a playlist: 
-            <select value={this.state.value} onChange={this.handleChange}>
-              {playlists.map(p => {
-                return (<option value={p.playlist}>{p.playlist}</option>)
-              })}
-            </select>
+            {<SelectPlaylist playlist={"terst"}/>} 
+            {/* playlists.map(p => {p.playlist}) */}
+            {/* playlists.map(<RenderCheckboxes song={playlist.song} />) */}
           </label>
-          <Button variant="contained" color="primary">Submit</Button> {/*change this value="Submit" to the transfer button to lift state up*/}
+          <Button style={{margin: "40px", padding: "20px"}} variant="contained" color="primary">Submit</Button>
+          {/* change this "Submit" button to the transfer button to lift state up to App.js or some other parent with the PlaylistRight sibling */}
         </form>
       </div>
     )

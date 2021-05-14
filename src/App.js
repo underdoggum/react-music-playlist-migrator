@@ -1,6 +1,7 @@
+import React, { Component } from 'react'
 import HeaderLeft from './components/HeaderLeft'
 import HeaderRight from './components/HeaderRight'
-import React, { Component } from 'react'
+import SelectPlaylist from './components/SelectPlaylist'
 
 class App extends Component {
   // constructor(props) {
@@ -12,6 +13,7 @@ class App extends Component {
       <div>
         <HeaderLeft />
         <HeaderRight />
+        <SelectPlaylist />
       </div>
     );
   }
