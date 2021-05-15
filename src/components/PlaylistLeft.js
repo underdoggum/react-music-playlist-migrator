@@ -59,18 +59,22 @@ class PlaylistLeft extends Component {
     super(props);
 
     this.state = {
-      value: "Please select a playlist",
+      selectedPlaylistName: "Please select a playlist",
+      selectedPlaylist: {}
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
     
   handleSubmit = event => {
-    alert(`Selected playlist: ${this.state.value}`)
+    alert(`Selected playlist: ${this.state.selectedPlaylistName}`)
     event.preventDefault()
   }
   handleChange = event => {
-    this.setState({value: event.target.value})
+    this.setState({
+      selectedPlaylistName: event.target.selectedPlaylistName,
+      selectedPlaylist: event.target.playlist, //change the value here so that the selectedPlaylist state updates to include whatever playlist is actually selected
+    })
   }
 
   render() {
@@ -79,11 +83,12 @@ class PlaylistLeft extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Choose a playlist: 
-            {<SelectPlaylist playlist={"terst"}/>} 
+            <SelectPlaylist playlist={playlists.playlist}/>
+            {console.log(playlists.playlist)}
             {/* playlists.map(p => {p.playlist}) */}
             {/* playlists.map(<RenderCheckboxes song={playlist.song} />) */}
           </label>
-          <Button style={{margin: "40px", padding: "20px"}} variant="contained" color="primary">Submit</Button>
+          <Button style={{margin: "40px", padding: "20px"}} variant="contained" color="primary">Transfer</Button>
           {/* change this "Submit" button to the transfer button to lift state up to App.js or some other parent with the PlaylistRight sibling */}
         </form>
       </div>

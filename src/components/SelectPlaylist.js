@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // Original design here: https://github.com/siriwatknp/mui-treasury/issues/540
 
-const SelectPlaylist = () => {
+const SelectPlaylist = props => {
   const [val, setVal] = useState(1)
 
   const handleChange = (event) => {
@@ -49,7 +49,7 @@ const SelectPlaylist = () => {
         value={val}
         onChange={handleChange}
       >
-        <MenuItem value={0}>Principle</MenuItem>
+        <MenuItem value={0}>{props.playlist}</MenuItem>
         <MenuItem value={1}>Sketch</MenuItem>
         <MenuItem value={2}>Photoshop</MenuItem>
         <MenuItem value={3}>Framer</MenuItem>
