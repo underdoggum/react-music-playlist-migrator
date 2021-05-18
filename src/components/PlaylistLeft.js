@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button'
 import RenderCheckboxes from './RenderCheckboxes'
 import SelectPlaylist from './SelectPlaylist';
 
-const playlists = [
+const allPlaylists = [
   {
       playlist: "Workout",
       songs:
@@ -46,14 +46,6 @@ const playlists = [
   }
 ]
 
-// const Button = props => {
-//   return (
-//     <div>
-//       <button className='button' onClick={ () => {alert(props.artist)}}>Transfer</button>
-//     </div>
-//   )
-// }
-
 class PlaylistLeft extends Component {
   constructor(props) {
     super(props);
@@ -83,10 +75,10 @@ class PlaylistLeft extends Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Choose a playlist: 
-            <SelectPlaylist playlist={playlists.playlist}/>
-            {console.log(playlists.playlist)}
-            {/* playlists.map(p => {p.playlist}) */}
-            {/* playlists.map(<RenderCheckboxes song={playlist.song} />) */}
+            <SelectPlaylist playlist={allPlaylists} />
+            {console.log(allPlaylists.playlist)}
+            {/* allPlaylists.map(p => {p.playlist}) */}
+            {/* allPlaylists.map(<RenderCheckboxes song={playlist.song} />) */}
           </label>
           <Button style={{margin: "40px", padding: "20px"}} variant="contained" color="primary">Transfer</Button>
           {/* change this "Submit" button to the transfer button to lift state up to App.js or some other parent with the PlaylistRight sibling */}

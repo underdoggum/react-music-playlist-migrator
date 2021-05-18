@@ -12,9 +12,10 @@ const RenderCheckboxes = props => {
   return (
     <FormControlLabel
       control={<Checkbox checked={checked} onChange={handleChange} />}
-      label={props.song}
+      label={"whatever.playlist"}
     />
   );
 }
+
 
 export default RenderCheckboxes

@@ -4,6 +4,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import RenderCheckboxes from './RenderCheckboxes';
 
 // Original design here: https://github.com/siriwatknp/mui-treasury/issues/540
 
@@ -11,7 +12,8 @@ const SelectPlaylist = props => {
   const [val, setVal] = useState(1)
 
   const handleChange = (event) => {
-    setVal(event.target.value)
+    setVal(event.target.value) //this grabs the value on the list, starting with 1, then 2, and etc...
+    console.log(event.target.value)
   };
 
   const minimalSelectClasses = useMinimalSelectStyles()
@@ -38,7 +40,6 @@ const SelectPlaylist = props => {
     getContentAnchorEl: null
   }
 
-
   return (
     <FormControl>
       <Select
@@ -49,11 +50,11 @@ const SelectPlaylist = props => {
         value={val}
         onChange={handleChange}
       >
-        <MenuItem value={0}>{props.playlist}</MenuItem>
-        <MenuItem value={1}>Sketch</MenuItem>
-        <MenuItem value={2}>Photoshop</MenuItem>
-        <MenuItem value={3}>Framer</MenuItem>
+        {props.playlist.map((whatever, i) => {
+            return (<MenuItem value={i}>{whatever.playlist}</MenuItem>)
+          })}
       </Select>
+      <RenderCheckboxes playlists={props.playlist.playlist} />{/*playlists= ...... set this equal to whatever's rendered on the current selection*/}
     </FormControl>
   );
 };
