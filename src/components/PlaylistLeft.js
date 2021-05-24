@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
-import RenderCheckboxes from './RenderCheckboxes'
 import SelectPlaylist from './SelectPlaylist';
 
 const allPlaylists = [
@@ -51,7 +50,7 @@ class PlaylistLeft extends Component {
     super(props);
 
     this.state = {
-      selectedPlaylistName: "Please select a playlist",
+      selectedPlaylistName: "",
       selectedPlaylist: {}
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -74,13 +73,12 @@ class PlaylistLeft extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Choose a playlist: 
+            Choose a playlist:
+            <br/>
             <SelectPlaylist playlist={allPlaylists} />
-            {console.log(allPlaylists.playlist)}
-            {/* allPlaylists.map(p => {p.playlist}) */}
-            {/* allPlaylists.map(<RenderCheckboxes song={playlist.song} />) */}
           </label>
-          <Button style={{margin: "40px", padding: "20px"}} variant="contained" color="primary">Transfer</Button>
+          <br/>
+          <Button style={{margin: "40px", padding: "20px"}} variant="contained" color="primary" onClick={() => {alert("this will eventually work...")}}>Transfer</Button>
           {/* change this "Submit" button to the transfer button to lift state up to App.js or some other parent with the PlaylistRight sibling */}
         </form>
       </div>

@@ -4,6 +4,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 import RenderCheckboxes from './RenderCheckboxes';
 
 // Original design here: https://github.com/siriwatknp/mui-treasury/issues/540
@@ -50,11 +51,20 @@ const SelectPlaylist = props => {
         value={val}
         onChange={handleChange}
       >
-        {props.playlist.map((whatever, i) => {
-            return (<MenuItem value={i}>{whatever.playlist}</MenuItem>)
-          })}
+        {props.playlist.map((p, i) => {
+            return (
+            <MenuItem value={i}>{p.playlist}</MenuItem>
+            )
+          })
+        }
       </Select>
-      <RenderCheckboxes playlists={props.playlist.playlist} />{/*playlists= ...... set this equal to whatever's rendered on the current selection*/}
+
+      {/* loop through the selected playlist to render checkboxes for each item */}
+      { props.playlist[val]["songs"].map((p, index) => {
+            return (<RenderCheckboxes key={index} playlistSongs={p} />)
+          }
+        )
+      }
     </FormControl>
   );
 };

@@ -3,7 +3,7 @@
   width: 40%;
   float: left;
   text-align: center;
-  color: red;
+  color: rgb(0, 68, 255);
   background-color: white;
   padding: 10px;
   font-family: Arial;
@@ -14,15 +14,11 @@
   /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 }
 
-.button {
-  
-}
-
 .HeaderRightStyle {
   float: right;
   width: 40%;
   text-align: center;
-  color: red;
+  color: rgb(22, 92, 158);
   background-color: white;
   padding: 10px;
   font-family: "Concert One" Arial;
